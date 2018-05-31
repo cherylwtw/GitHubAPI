@@ -2,18 +2,69 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title> GitHub API</title>
+        <title>GitHub API</title>
         <link rel="stylesheet" href="css/style.css">
     </head>
 <body>
     
     <header>
-        <h1>get the repositories with more than 10k stars, sort them by number of stars</h1>
-        <button id="btn">Search</button>
+        <h1>Retrieve Information using GitHub API</h1>
     </header>
+    
+    <h3>Information collecting options:</h3>
+    <div>
+        <table style="width:100%">
+            <tr>
+                <th>Description</th>
+                <th>Search Critiria</th>
+                <th>Search</th>
+            </tr>
+            <tr>
+                <td>repositories with more than 10k stars</td>
+                <td>None</td>
+                <td><button id="btn1">Search</button></td>
+            </tr>
+            <tr>
+                <td>repositories with given topic of human-computer-interaction</td>
+                <td>None</td>
+                <td><button id="btn2">Search</button></td>
+            </tr>
+        </table>
+    </div>
 
+
+    <h3>Results:</h3>
     <div id="github-info"></div>
     
+    <script id="repoTemplate" type="text/x-handlebars-template">
+        <table style="width:100%">
+        <tr>
+            <th>Repository ID</th>
+            <th>Repository Name</th>
+            <th>Repository Owner</th>
+            <th>Contributors_URL</th>
+            <th>Contributors</th>
+            <th>Repository URL</th>
+            <th>Repository Description</th>
+        </tr>
+        {{#each items}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{name}}</td>
+            <td>{{owner.login}}</td>
+            <td>{{contributors_url}}</td>
+            <td>
+            {{#each contributors}}
+                {{login}},
+            {{/each}}
+            </td>
+            <td>{{html_url}}</td>
+            <td>{{description}}</td>
+        </tr>
+        {{/each}}
+    </script>
+    
+    <script src="js/handlebars-v4.0.11.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
