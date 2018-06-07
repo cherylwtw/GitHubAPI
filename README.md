@@ -5,8 +5,7 @@ Retrieve GitHub contributor logins to repos that satisfy different search criter
 ### Acknowledgement
 1. Source code and methods are used and learned from youtube tutorial, JSON and AJAX Tutorial: With Real Examples and Handlebars.js Tutorial provided by LearnWebCode. I highly recommend this channel - series of videos can be found at https://www.youtube.com/user/LearnWebCode.
 2. Some helpful stackOverflow answers are used, including
-https://stackoverflow.com/questions/22084698/how-to-export-source-content-within-div-to-text-html-file
-<br />
+https://stackoverflow.com/questions/22084698/how-to-export-source-content-within-div-to-text-html-file,
 https://stackoverflow.com/questions/16078544/export-to-csv-using-jquery-and-html/16203218
 
 ### Usage
