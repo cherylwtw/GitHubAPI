@@ -4,67 +4,109 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>GitHub API</title>
         <link rel="stylesheet" href="css/style.css">
-    </head>
-<body>
-    
-    <header>
-        <h1>Retrieve Information using GitHub API</h1>
-    </header>
-    
-    <h3>Information collecting options:</h3>
-    <div>
-        <table style="width:100%">
+            </head>
+    <body>
+        
+        <header>
+            <h1>Retrieve Information using GitHub API</h1>
+        </header>
+        
+        <div class="row">
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <h3>Select Repos:</h3>
+                <table>
+                    <tr>
+                        <th>Description</th>
+                        <th>Page</th>
+                        <th>Search</th>
+                    </tr>
+                    <tr>
+                        <td>repositories with more than 10k stars</td>
+                        <td><input id="txtPagenum1" type="text" name="pagenum1" value="1"></td>
+                        <td><button id="btn1">Search</button></td>
+                    </tr>
+                    <tr>
+                        <td>repositories with given topic of human-computer-interaction</td>
+                        <td><input id="txtPagenum2" type="text" name="pagenum2" value="1"></td>
+                        <td><button id="btn2">Search</button></td>
+                    </tr>
+                    <tr>
+                        <td>repositories with given topic of hci</td>
+                        <td><input id="txtPagenum3" type="text" name="pagenum3" value="1"></td>
+                        <td><button id="btn3">Search</button></td>
+                    </tr>
+                    <tr>
+                        <td>repositories with given topic of user-experience</td>
+                        <td><input id="txtPagenum4" type="text" name="pagenum4" value="1"></td>
+                        <td><button id="btn4">Search</button></td>
+                    </tr>
+                    <tr>
+                        <td>repositories with given topic of ux</td>
+                        <td><input id="txtPagenum5" type="text" name="pagenum5" value="1"></td>
+                        <td><button id="btn5">Search</button></td>
+                    </tr>
+                    <tr>
+                        <td>repositories with given topic of usability</td>
+                        <td><input id="txtPagenum6" type="text" name="pagenum6" value="1"></td>
+                        <td><button id="btn6">Search</button></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="column">
+                <h3>List of unique contributors:</h3>
+                <h4 id="contributor-sum-info"><h4>
+                    <div id="contributor-info" style="height:400px;width:100%;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;"></div>
+                    <script id="contributorTemplate" type="text/x-handlebars-template">
+                        {{#each this}}
+                        <p>{{login}}</p>
+                        {{/each}}
+                        </script>
+                    </div>
+            <a style="float:right" href="#" id="hyperlinkContributorExport" class="export">Export Contributor Data into Text</a>
+        </div>
+        
+        
+        
+        <h3>Results:</h3>
+        <button id="btn7" type="button">Add shown contributors to List</button>
+        <a style="float:right" href="#" id="hyperlinkRepoExport" class="export">Export Repo Data into Excel</a>
+        <div id="github-info"></div>
+        
+        <script id="repoTemplate" type="text/x-handlebars-template">
+            <table style="width:100%">
             <tr>
-                <th>Description</th>
-                <th>Search Critiria</th>
-                <th>Search</th>
-            </tr>
-            <tr>
-                <td>repositories with more than 10k stars</td>
-                <td>None</td>
-                <td><button id="btn1">Search</button></td>
-            </tr>
-            <tr>
-                <td>repositories with given topic of human-computer-interaction</td>
-                <td>None</td>
-                <td><button id="btn2">Search</button></td>
-            </tr>
-        </table>
-    </div>
-
-
-    <h3>Results:</h3>
-    <div id="github-info"></div>
-    
-    <script id="repoTemplate" type="text/x-handlebars-template">
-        <table style="width:100%">
-        <tr>
-            <th>Repository ID</th>
-            <th>Repository Name</th>
-            <th>Repository Owner</th>
+            <th>Repository_ID</th>
+            <th>Repository_Name</th>
+            <th>Repository_Owner</th>
             <th>Contributors_URL</th>
             <th>Contributors</th>
-            <th>Repository URL</th>
-            <th>Repository Description</th>
-        </tr>
-        {{#each items}}
-        <tr>
+            <th>Repository_URL</th>
+            <th>Repository_Description</th>
+            </tr>
+            {{#each items}}
+            <tr>
             <td>{{id}}</td>
             <td>{{name}}</td>
             <td>{{owner.login}}</td>
             <td>{{contributors_url}}</td>
             <td>
             {{#each contributors}}
-                {{login}},
+            {{login}}
             {{/each}}
             </td>
             <td>{{html_url}}</td>
             <td>{{description}}</td>
-        </tr>
-        {{/each}}
-    </script>
-    
-    <script src="js/handlebars-v4.0.11.js"></script>
-    <script src="js/main.js"></script>
-</body>
+            </tr>
+            {{/each}}
+            </table>
+            </script>
+        
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="js/handlebars-v4.0.11.js"></script>
+        <script src="js/main.js"></script>
+    </body>
 </html>
