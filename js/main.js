@@ -22,12 +22,13 @@ var currentContributorsList = [];
 var contributorsDetails = [];
 var contributorExportFileName = 'contributorsExport.txt';
 var repoExportFileName = 'repoExport.csv';
+var accessToken = 'xxxxxxxxxx'    // replace it with your own token, this one is invalid now
 
 // Ajax calls to the github server to get data
 // this is learned from tutorial, JSON and AJAX Tutorial: With Real Examples on youtube by LearnWebCode - https://www.youtube.com/watch?v=rJesac0_Ftw
 btn1.addEventListener("click", function() {
                       var repoRequest = new XMLHttpRequest();
-                      requestStr='https://api.github.com/search/repositories?q=stars:%3E=10000&per_page=50' + '&page=' + txtPagenum1.value + '&access_token=4c12cb4a014c24df8301b1ea146afceb4a6626cc'
+                      requestStr='https://api.github.com/search/repositories?q=stars:%3E=10000&per_page=50' + '&page=' + txtPagenum1.value + '&access_token=' + accessToken;
                       console.log(requestStr);
                       repoRequest.open('GET', requestStr);
                       
@@ -52,7 +53,7 @@ btn1.addEventListener("click", function() {
 
 btn2.addEventListener("click", function() {
                       var repoRequest = new XMLHttpRequest();
-                      requestStr ='https://api.github.com/search/repositories?q=topic:human-computer-interaction&per_page=50' + '&page=' + txtPagenum2.value + '&access_token=4c12cb4a014c24df8301b1ea146afceb4a6626cc';
+                      requestStr ='https://api.github.com/search/repositories?q=topic:human-computer-interaction&per_page=50' + '&page=' + txtPagenum2.value + '&access_token=' + accessToken;
                       console.log(requestStr);
                       repoRequest.open('GET', requestStr);
                       
@@ -78,7 +79,7 @@ btn2.addEventListener("click", function() {
 
 btn3.addEventListener("click", function() {
                       var repoRequest = new XMLHttpRequest();
-                      requestStr ='https://api.github.com/search/repositories?q=topic:hci&per_page=50' + '&page=' + txtPagenum3.value + '&access_token=4c12cb4a014c24df8301b1ea146afceb4a6626cc';
+                      requestStr ='https://api.github.com/search/repositories?q=topic:hci&per_page=50' + '&page=' + txtPagenum3.value + '&access_token=' + accessToken;
                       console.log(requestStr);
                       repoRequest.open('GET', requestStr);
                       
@@ -103,7 +104,7 @@ btn3.addEventListener("click", function() {
 
 btn4.addEventListener("click", function() {
                       var repoRequest = new XMLHttpRequest();
-                      requestStr ='https://api.github.com/search/repositories?q=topic:user-experience&per_page=50' + '&page=' + txtPagenum4.value + '&access_token=4c12cb4a014c24df8301b1ea146afceb4a6626cc';
+                      requestStr ='https://api.github.com/search/repositories?q=topic:user-experience&per_page=50' + '&page=' + txtPagenum4.value + '&access_token=' + accessToken;
                       console.log(requestStr);
                       repoRequest.open('GET', requestStr);
                       
@@ -128,7 +129,7 @@ btn4.addEventListener("click", function() {
 
 btn5.addEventListener("click", function() {
                       var repoRequest = new XMLHttpRequest();
-                      requestStr ='https://api.github.com/search/repositories?q=topic:ux&per_page=50' + '&page=' + txtPagenum5.value + '&access_token=4c12cb4a014c24df8301b1ea146afceb4a6626cc';
+                      requestStr ='https://api.github.com/search/repositories?q=topic:ux&per_page=50' + '&page=' + txtPagenum5.value + '&access_token=' + accessToken;
                       console.log(requestStr);
                       repoRequest.open('GET', requestStr);
                       
@@ -154,7 +155,7 @@ btn5.addEventListener("click", function() {
 
 btn6.addEventListener("click", function() {
                       var repoRequest = new XMLHttpRequest();
-                      requestStr ='https://api.github.com/search/repositories?q=topic:usability&per_page=50' + '&page=' + txtPagenum6.value + '&access_token=4c12cb4a014c24df8301b1ea146afceb4a6626cc';
+                      requestStr ='https://api.github.com/search/repositories?q=topic:usability&per_page=50' + '&page=' + txtPagenum6.value + '&access_token=' + accessToken;
                       console.log(requestStr);
                       repoRequest.open('GET', requestStr);
                       
@@ -196,7 +197,7 @@ function GetContributorsData() {
         
         for (j= 1; j<6; j++) {
             var contributorsRequest = new XMLHttpRequest();
-            contributors_url = contributors_url + '?per_page=100&' + 'page='+ j + '&access_token=4c12cb4a014c24df8301b1ea146afceb4a6626cc';
+            contributors_url = contributors_url + '?per_page=100&' + 'page='+ j + '&access_token=' + accessToken;
             
             // TODO: force process is handled synchronously
             contributorsRequest.open('GET', contributors_url, false);

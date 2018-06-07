@@ -11,6 +11,7 @@ https://stackoverflow.com/questions/16078544/export-to-csv-using-jquery-and-html
 
 ### Usage
 Retrieve GitHub contributor logins to repos that satisfy different search criteria
+Before executing: replace accessToken with your own token in main.js, this allows increasing in github request rate limit
 1. Click "search" button next to the repo search criteria you want
 2. When table shows in the result section, click on "export repo data into excel" to export the repo data shown in the table, click on "add shown contributors to list" to add contributors to the "list of unque contributors" window on the right.
 3. After all contributors are added based on searched repos, "export contributor data into text" will export the final contributors list into a text file
