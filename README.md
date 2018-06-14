@@ -8,6 +8,7 @@
 2. Some helpful stackOverflow answers are used, including
 https://stackoverflow.com/questions/22084698/how-to-export-source-content-within-div-to-text-html-file,
 https://stackoverflow.com/questions/16078544/export-to-csv-using-jquery-and-html/16203218
+3. Great thanks to GHTorrent, open source project provides historical GitHub data. More details available at GHTorrent http://ghtorrent.org
 
 ### Usage
 Retrieve GitHub contributor logins to repos that satisfy different search criteria
@@ -19,3 +20,5 @@ Before executing: replace accessToken with your own token in main.js, this allow
  Get emails of GitHub logins - this is using resources provided by Paulirish, in his repo github-email (https://github.com/paulirish/github-email)
  1. run node contributors_email.js to get emails for logins in contirbutor_info/contributorExport_1.txt into email_info/emailExport_1.txt
 
+Get contribution Stats from GHTorrent (http://ghtorrent.org)
+1. Run GHTorrentClient after following GHTorrent's instruction on getting access to their server.
